@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"; //eslint-disable-next-line
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";  
+import Login from "./pages/login/Login";
+import Forget from "./pages/forget/Forget";
+import Reset from "./pages/reset/Reset";
+import OTP from "./pages/otp/Otp";
+import Dashboard from "./pages/dashboard/Dashboard";
+import CreateEmployee from "./pages/createemployee/CreateEmployee";
+import AddEmployee from "./pages/createemployee/AddEmployee";
+import Layout from "./components/Layout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      {/*Public Routes*/}
+      <Route path="/" element={<Login />} />
+      <Route path="/forget" element={<Forget />} />
+      <Route path="/reset" element={<Reset />} />
+      <Route path="/otp" element={<OTP />} />
+{/*Protected Routes */}
+<Route element={<ProtectedRoute/>}>
+      <Route element={<Layout />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/createemployee" element={<CreateEmployee />} />
+         <Route path="/addemployee" element={<AddEmployee />} />
+      </Route>
+      </Route>
+    </Routes>
   );
 }
 

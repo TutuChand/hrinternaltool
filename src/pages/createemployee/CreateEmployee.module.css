@@ -1,0 +1,262 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins, sans-serif;
+}
+
+.container {
+  padding: 30px;
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+.employeeHeader {
+  margin-bottom: 4px;
+}
+
+.employeeHeader h2 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #1e293b;
+  margin: 0;
+}
+
+.employeeHeader p {
+  color: #8e8670;
+  font-size: 14px;
+  margin-top: 0px;
+}
+
+.stepperContainer {
+  background-color: #fff;
+  border: 1px solid #d2cab3;
+  border-radius: 12px;
+  padding: 20px 15px;
+  margin-bottom: 25px;
+}
+
+.stepper {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  width: 92%;
+  height: 2.5px;
+  background-color: #d2cab380;
+  margin-bottom: 12px;
+  align-self: center;
+  border-radius: 2px;
+}
+
+.step.active .line {
+  background-color: #d2cab380;
+}
+
+.labelGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 5%;
+}
+
+.number {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #8e8670;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #8e8670;
+  background: white;
+}
+
+.step.active .number {
+  border-color: #d4a373;
+  color: #4b4436;
+  font-weight: 600;
+}
+
+.text {
+  font-size: 14px;
+  color: #8e8670;
+  margin: 0;
+}
+
+.step.active .text {
+  color: #4b4436;
+}
+
+.mainCard {
+  background: #fff;
+  border: 1px solid #d2cab3;
+  border-radius: 12px;
+  padding: 30px;
+}
+
+.cardHeader h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1e293b;
+  margin-top: 15px;
+}
+
+.cardHeader p {
+  font-size: 12px;
+  color: #8e8670;
+  margin: 4px 0 20px;
+}
+
+.profileUploadWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.imagePlaceholder {
+  width: 80px;
+  height: 80px;
+  background: #fdfaf5;
+  border: 1px solid #d2cab380;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d2cab3;
+  font-size: 24px;
+}
+.uploadActions{
+   background-color: #F8FCFF;
+}
+.uploadActions span{
+  color:#8E8670 ;
+   background-color: #F8FCFF;
+}
+
+.uploadInfo p {
+  font-size: 16px;
+  color: #8e8670;
+  margin-bottom: 8px;
+}
+
+.fileBtn {
+  background-color: #F8FCFF;
+  border: 1px solid #d2cab3;
+  padding: 8px 14px;
+  color: #2D2207;
+  margin-right: 13px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 15px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.field label {
+  font-size: 13px;
+  color: #5f5a4c;
+  font-weight: 500;
+}
+.field input,
+.field select {
+  padding: 12px;
+  border: 1px solid #d2cab3;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  color: #4b4436;
+}
+
+.sectionDivider {
+  height: 1px;
+  background: #d2cab34d;
+  margin: 10px 0;
+}
+
+.addressFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #5f5a4c;
+}
+
+.toggleSwitch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #8e8670;
+}
+.toggle {
+  width: 38px;
+  height: 18px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  position: relative;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.previous {
+  min-width: 189px;
+  height: 40px;
+  background: white;
+  border: 1px solid #d2cab3;
+  border-radius: 8px;
+  color: #8e8670;
+  cursor: pointer;
+}
+
+.next {
+  min-width: 189px;
+  height: 40px;
+  background-image: linear-gradient(to right, #ffd25d, #f2b517);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #1e293b;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .buttonRow {
+    flex-direction: column;
+  }
+  .save,
+  .cancel {
+    width: 100%;
+  }
+}
