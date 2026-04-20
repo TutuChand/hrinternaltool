@@ -11,11 +11,11 @@
 
 .wrapper {
   background: white;
-  width: 460px;
-  max-height: 530px;
-  padding: 40px;
+  width: 420px;
+  max-height: 500px;
+  padding:30px;
   border: 2px solid #fff3d5;
-  border-radius: 12px;
+  border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
@@ -49,11 +49,11 @@
 }
 
 .continue {
-  height: 23px;
-  font-size: 16px;
-  font-weight: 400;
+  height: 20px;
+  font-size: 15px;
+  font-weight: 500;
   color: #8e8670;
-  margin: 5px 5px 0px;
+  margin: 2px 0px 0px;
 }
 
 .errorMessage {
@@ -105,7 +105,7 @@ form div {
 
 .inputBox input {
   width: 100%;
-  height: 55px;
+  height: 45px;
   padding: 0 16px 0 45px;
   border-radius: 8px;
   border: 1px solid #d2cab3;
@@ -148,7 +148,7 @@ form div {
   border-radius: 6px;
   cursor: pointer;
   font-size: 18px;
-  margin-top: 40px;
+  margin-top: 20px;
   transition: 0.3s;
 }
 
@@ -161,4 +161,40 @@ form div {
   align-items: center;
   font-weight: 600;
   margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 15px;
+    max-width: 320px;
+    max-height: 95vh;
+  }
+
+  .logo img {
+    width: 48px;
+  }
+
+  .logo p {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .welcome {
+    font-size: 22px;
+  }
+
+  .continue {
+    font-size: 12px;
+  }
+
+  .inputBox input {
+    height: 44px;
+    font-size: 15px;
+    
+  }
+
+  .btn {
+    height: 48px;
+    font-size: 16px;
+  }
 }

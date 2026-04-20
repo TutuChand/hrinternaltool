@@ -55,6 +55,7 @@ function App() {
                 <Route path="documents" element={<Documents />} />
               </Route>
             </Route>
+
             {/* Hiring routes */}
             <Route path="/hiring">
               <Route index element={<Hiring />} />
@@ -76,10 +77,12 @@ function App() {
             <Route path="/leave">
               <Route index element={<Leave />} />
             </Route>
+
             {/*Round & Designations routes */}
             <Route path="/round">
               <Route index element={<Round />} />
             </Route>
+            
             {/*Announcement routes */}
             <Route path="/announcement">
               <Route index element={<Announcements />} />
