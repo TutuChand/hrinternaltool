@@ -8,4 +8,5 @@ export const otp1Atom = atom("");
 export const otp2Atom = atom("");
 export const otp3Atom = atom("");
 export const otp4Atom = atom("");
-export const isLoggedInAtom = atom("");
+export const isLoggedInAtom = atom(true);
+export const userAtom = atom(null);

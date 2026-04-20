@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const API = axios.create({
-  baseURL: "http://niyamra.ducktaleit.com",
+const api = axios.create({
+  baseURL: "https://niyamra.ducktaleit.com",
   headers: {
     "Content-Type": "application/json",
   },
   withCredentials: true,
 });
 
-export default API;
+export default api;

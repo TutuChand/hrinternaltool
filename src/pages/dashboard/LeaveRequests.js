@@ -15,7 +15,7 @@ const LeaveRequests = () => {
         <div className={styles.leaveList}>
           <div className={styles.leaveItem}>
             <div className={styles.left}>
-              <img src={icon19} alt="" />
+              <img src={icon19} alt="icon" />
               <div>
                 <h4>Raj Patel</h4>
                 <span>Sick Leave • Apr 12 - Apr 14</span>
@@ -32,7 +32,7 @@ const LeaveRequests = () => {
 
           <div className={styles.leaveItem}>
             <div className={styles.left}>
-              <img src={icon20} alt="" />
+              <img src={icon20} alt="icon" />
               <div>
                 <h4>Amina Okan</h4>
                 <span>Casual Leave • Apr 20</span>

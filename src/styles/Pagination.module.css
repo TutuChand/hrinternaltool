@@ -1,0 +1,60 @@
+.page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding: 15px;
+}
+
+.page p {
+  color: #8e8670;
+  font-weight: 500;
+}
+
+.pagebutton {
+  display: flex;
+  gap: 6px;
+}
+
+.pageButton {
+  width: 38px;
+  height: 33px;
+  border: 1px solid #d2cab3;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #0f1724;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.pageButton:hover,
+.previous:hover:not(:disabled),
+.next:hover:not(:disabled) {
+  background-image: linear-gradient(to right, #ffd25d, #f2b517);
+}
+
+.activePage {
+  background-image: linear-gradient(to right, #ffd25d, #f2b517);
+  font-weight: bold;
+}
+
+.previous:disabled,
+.next:disabled {
+  color: #d2cab3;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.previous,
+.next {
+  width: 80px;
+  height: 33px;
+  border: 1px solid #d2cab3;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #0f1724;
+  background-color: #fff;
+  cursor: pointer;
+}

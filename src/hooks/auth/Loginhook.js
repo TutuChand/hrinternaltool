@@ -1,20 +1,34 @@
-// useLogin.js
 import { useMutation } from "@tanstack/react-query";
 import { loginUser } from "../../Api/auth";
 import { useNavigate } from "react-router-dom";
 import { useSetAtom } from "jotai";
-import { isLoggedInAtom } from "../../atoms/authAtoms";
+import { userAtom, isLoggedInAtom } from "../../atoms/authAtoms";
+import toast from "react-hot-toast";
 
 export const useLogin = (setError) => {
   const navigate = useNavigate();
   const setIsLoggedIn = useSetAtom(isLoggedInAtom);
+  const setUser = useSetAtom(userAtom);
 
   return useMutation({
     mutationFn: loginUser,
 
-    onSuccess: () => {
+    onSuccess: (data) => {
       setError("");
-      setIsLoggedIn(true); // Update login state for protected routes
+      setIsLoggedIn(true);
+      setUser(data?.user);
+      if (data?.token) {
+        document.cookie = `accessToken=${data.token}; max-age=900; path=/; Secure; SameSite=Strict`;
+        setTimeout(() => {
+          document.cookie =
+            "accessToken=; Max-Age=0; path=/; Secure; SameSite=Strict";
+          setIsLoggedIn(false);
+          navigate("/login");
+          toast("Session expired. Please log in again.");
+        }, 900 * 1000);
+      }
+
+      toast.success("Logged in Successfully");
       navigate("/dashboard");
     },
 

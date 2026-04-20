@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./CreateEmployee.module.css";
+import styles from "./PersonalInfo.module.css";
 import { useAtom } from "jotai";
 import { employeeAtom } from "../../atoms/employeeAtom";
 import { useCreateEmployee } from "../../hooks/employee/addemployeehook";
@@ -49,32 +49,6 @@ const CreateEmployee = () => {
         <p>Add candidate details for interview process</p>
       </div>
 
-      <div className={styles.stepperContainer}>
-        <div className={styles.stepper}>
-          <div className={`${styles.step} ${styles.active}`}>
-            <div className={styles.line}></div>
-            <div className={styles.labelGroup}>
-              <span className={styles.number}>1</span>
-              <p className={styles.text}>Personal Info</p>
-            </div>
-          </div>
-          <div className={styles.step}>
-            <div className={styles.line}></div>
-            <div className={styles.labelGroup}>
-              <span className={styles.number}>2</span>
-              <p className={styles.text}>Employee Details</p>
-            </div>
-          </div>
-          <div className={styles.step}>
-            <div className={styles.line}></div>
-            <div className={styles.labelGroup}>
-              <span className={styles.number}>3</span>
-              <p className={styles.text}>Documents</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className={styles.mainCard}>
         <div className={styles.cardHeader}>
           <h3>Personal Details</h3>
@@ -93,7 +67,9 @@ const CreateEmployee = () => {
                 Choose File &rarr;
               </label>
               <input type="file" id="fileInput" style={{ display: "none" }} />
-              <span>No File Chosen</span>
+              <button type="button" className={styles.fileStatus}>
+                No File Chosen
+              </button>
             </div>
           </div>
         </div>
@@ -302,7 +278,7 @@ const CreateEmployee = () => {
             <label>City</label>
             <input
               name="city"
-              value={employee.landmark}
+              value={employee.city}
               onChange={handleChange}
               placeholder="e.g Los Angeles"
             />
@@ -313,7 +289,7 @@ const CreateEmployee = () => {
               name="state"
               value={employee.state}
               onChange={handleChange}
-              placeholder="california"
+              placeholder="California"
             />
           </div>
           <div className={styles.field}>

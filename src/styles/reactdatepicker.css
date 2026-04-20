@@ -1,0 +1,21 @@
+.react-datepicker {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  font-family: inherit;
+}
+
+.react-datepicker__header {
+  background: #fff;
+  border-bottom: none;
+}
+
+.react-datepicker__day--selected {
+  background-color: #f59e0b !important;
+  color: #fff !important;
+  border-radius: 50%;
+}
+
+.react-datepicker__day:hover {
+  background-color: #fde68a !important;
+  border-radius: 50%;
+}

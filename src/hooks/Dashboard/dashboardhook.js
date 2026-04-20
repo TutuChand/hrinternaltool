@@ -1,8 +1,8 @@
 // useDashboardStats.js
 import { useQuery } from "@tanstack/react-query";
-import { getDashboardStats } from "../Api/dashboard";
+import { getDashboardStats } from "../../Api/dashboard";
 import { useAtom } from "jotai";
-import { isLoggedInAtom } from "../atoms/authAtoms";
+import { isLoggedInAtom } from "../../atoms/authAtoms";
 
 export const useDashboardStats = () => {
   const [isLoggedIn] = useAtom(isLoggedInAtom);

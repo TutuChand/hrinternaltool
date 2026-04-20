@@ -33,8 +33,15 @@ html {
   font-weight: 600;
 }
 
+.dashboardWrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
 .sidebar {
-  width: 239px;
+  width: 225px;
   background: #fffbf1;
   display: flex;
   flex-direction: column;
@@ -44,7 +51,7 @@ html {
 
 .sidebar img {
   width: 100%;
-  max-width: 230px;  
+  max-width: 230px;
   height: auto;
 }
 
@@ -90,10 +97,10 @@ html {
 }
 
 .menu {
-  margin-top: 10px;
+  margin-top: 8px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 
 .hrmanager {
@@ -192,30 +199,12 @@ html {
   font-size: 13px;
 }
 
-.bell {
-  width: 38px;
-  height: 43px;
-  border-radius: 8px;
-  border: 1px solid #d2cab3;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bell img {
-  width: 16px;
-  height: 16px;
-}
-
 .profile {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
+  background: transparent;
+  border: none;
+  padding: 0;
   cursor: pointer;
 }
-
 .content {
   padding: 20px;
 }
@@ -227,7 +216,7 @@ html {
 }
 
 .card {
-  background: #fff;
+  background: #fffbf1;
   border-radius: 8px;
   padding: 16px;
   border: 1px solid #d2cab3;
@@ -272,13 +261,12 @@ html {
 }
 
 .bigcard {
-  background: #fff;
+  background: #fffbf1;
   border-radius: 12px;
   padding: 18px;
   border: 1px solid #d2cab3;
-  width: 728px;
-  height: 210px;
-  margin-left: 15px;
+  width: 750px;
+  margin-left: 25px;
 }
 
 .bigcardHeader {
@@ -401,13 +389,12 @@ html {
 }
 
 .cardInterview {
-  background: #fff;
+  background: #fffbf1;
   border-radius: 12px;
   padding: 18px;
   border: 1px solid #d2cab3;
-  width: 728px;
-  height: auto;
-  margin-left: 15px;
+  width: 750px;
+  margin-left: 25px;
 }
 
 .cardInterviewHeader {
@@ -529,13 +516,13 @@ html {
 }
 
 .attendanceMonitor {
-  width: 768px;
+  width: 785px;
   min-height: 350px;
-  background: #ffffff;
+  background-color: #fffbf1;
   border: 1px solid #d2cab3;
   border-radius: 12px;
   padding: 10px;
-  margin-left: 15px;
+  margin-left: 25px;
   margin-top: 13px;
   height: auto;
   box-sizing: border-box;
@@ -555,11 +542,22 @@ html {
   color: #1e293b;
 }
 
+.loadingCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
 .viewReport {
   font-size: 13px;
   font-weight: 550;
   color: #1e293b;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .progressContainer {
@@ -618,40 +616,9 @@ html {
   color: #8e8670;
 }
 
-.attendanceTable {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.attendanceTable th {
-  text-align: left;
-  font-size: 12px;
-  color: #8e8670;
-  font-weight: 500;
-  padding: 8px 0;
-  border-bottom: 1px solid #d2cab3;
-}
-
-.attendanceTable td {
-  padding: 10px 0;
-  border-bottom: 1px solid #d2cab3;
-  font-size: 14px;
-  color: #2d3748;
-}
-.attendanceTable tr:nth-child(3) td {
-  border-bottom: none;
-}
-
-.userCell {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 500;
-}
-
 .avatarPlaceholder {
-  width: 29px;
-  height: 29px;
+  width: 35px;
+  height: 33px;
   border-radius: 50%;
 }
 
@@ -686,28 +653,36 @@ td.timeText {
 }
 
 .birthdays {
-  background: #fff;
-  border-radius: 12px;
   padding: 1rem;
-  height: 210px;
   width: 346px;
   border: 1px solid #d2cab3;
+  background: #ffffff;
+  background-color: #fffbf1;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  height: fit-content;
 }
 
 .birthdayHeader {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
   border-bottom: 1px solid #d2cab3;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
 
 .birthdayHeader h3 {
-  font-weight: 500;
-  font-size: 18px;
-  color: #1e293b;
   margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.birthdayTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .birthdayCard {
@@ -765,10 +740,10 @@ td.timeText {
 
 .announcements {
   width: 380px;
-  height: 322px;
+  height: fit-content;
   border: 1px solid #d2cab3;
   border-radius: 13px;
-  background: #fff;
+  background-color: #fffbf1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -801,21 +776,6 @@ td.timeText {
   color: #2d2207;
   margin: 0;
   padding: 0;
-}
-
-.announcementheader span {
-  background: #fff;
-  border-radius: 50%;
-  border: 1px solid #d2cab3;
-  cursor: pointer;
-  padding: 0.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
-  font-size: 12px;
-  color: #2d2207;
 }
 
 .announcementPrimary,
@@ -860,13 +820,13 @@ td.timeText {
 .dashboardgrid {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 16px;
+  gap: 6px;
 }
 
 .dashboardgrid2 {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 16px;
+  gap: 6px;
   margin-top: 12px;
 }
 
@@ -897,6 +857,55 @@ td.timeText {
 .lastlogo {
   position: relative;
 }
+.avatarFallback {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #d8d1ba;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 14px;
+}
+.profileDropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownMenu {
+  position: absolute;
+  right: 0;
+  margin-top: 8px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  min-width: 140px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: red;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.logoutBtn:hover {
+  border-radius: 8px;
+}
+
+.hamburger {
+  display: none;
+}
 
 /*Media Queries */
 
@@ -904,7 +913,6 @@ img {
   max-width: 100%;
   height: auto;
 }
-
 /*   (1024px)*/
 @media (max-width: 1024px) {
   .cards {
@@ -949,24 +957,45 @@ img {
 /* (768px) */
 @media (max-width: 768px) {
   .sidebar {
-    width: 70px;
-    padding: 10px 5px;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    height: calc(100vh - 40px);
+    width: 220px;
+    background: #fffbf1;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+    border-radius: 0 12px 12px 0;
   }
 
-  .logo {
-    display: none;
+  .sidebarOpen {
+    transform: translateX(0);
+  }
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 22px;
   }
 
-  .menu button {
-    flex-direction: column;
-    align-items: center;
-    font-size: 10px;
-    padding: 6px;
+  .hrmanager {
+    position: sticky;
+    bottom: 0;
+    background: #fffbf1;
   }
 
-  .menu button span {
-    display: none;
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
   }
+
   .cards {
     grid-template-columns: 1fr;
   }
@@ -978,6 +1007,12 @@ img {
   .dashboardgrid,
   .dashboardgrid2 {
     grid-template-columns: 1fr;
+    justify-content: center;
+  }
+
+  .dashboardWrapper {
+    padding: 10px;
+    margin: auto;
   }
 
   .bigcard,
@@ -985,10 +1020,12 @@ img {
   .attendanceMonitor,
   .birthdays,
   .announcements {
-    width: 100%;
-    margin-left: 0;
+    width: 90%;
+    padding: 10px;
+    margin: 10px auto;
   }
 }
+
 /* (480px) */
 @media (max-width: 480px) {
   .header h2 {
@@ -1014,4 +1051,184 @@ img {
     font-size: 10px;
     padding: 6px;
   }
+}
+
+/* Container */
+
+.seeAllBtn {
+  font-size: 13px;
+  font-weight: 550;
+  color: #111;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.seeAllBtn:hover {
+  color: #f6ad55;
+  opacity: 0.8;
+}
+
+List .birthdayList {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card */
+.birthdayCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 6px;
+  background: #fffbf1;
+  transition: 0.2s ease;
+  height: 35px;
+  padding-bottom: 14px;
+}
+
+/* Avatar Image */
+.profileIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Initials Avatar */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+  color: #f2b517;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+/* Info */
+.birthdayInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.birthdayInfo p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.birthdayInfo span {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+/* Action Button */
+.birthdayActionBtn {
+  background: #fff;
+  border: none;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.birthdayActionBtn {
+  color: black;
+  transition: color 0.3s ease;
+}
+
+.birthdayActionBtn:hover {
+  color: #f6ad55;
+}
+.birthdayList .birthdayCard:last-child {
+  border: none;
+}
+
+.noData {
+  text-align: center;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.skeletonProfile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  animation: pulse 1.5s infinite;
+}
+
+.skeletonText {
+  width: 120px;
+  height: 12px;
+  background: #e2e8f0;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeletonSubText {
+  width: 80px;
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+/* Animation */
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.todayLabel {
+  color: #16a34a;
+  font-weight: 500;
+}
+.initialAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #6366f1;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.absentBadge {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.userCell {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }

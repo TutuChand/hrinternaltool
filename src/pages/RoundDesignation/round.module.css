@@ -1,0 +1,220 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins, sans-serif;
+}
+
+.header {
+  padding: 20px 18px;
+}
+
+.heading h2 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.heading p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #8e8670;
+}
+.wrapper {
+  padding: 10px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 5px;
+}
+
+.department {
+  width: 100%;
+  max-width: 370px;
+  height: 600px;
+  background-color: #fffbf1;
+  padding: 10px;
+  margin: 20px 0px 0px 10px;
+  border: 1px solid #d2cab3;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.department h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  padding-top: 8px;
+  padding-left: 8px;
+}
+
+.department p {
+  padding-left: 8px;
+  margin: 0;
+  font-size: 14px;
+  color: #8e8670;
+}
+
+.roles {
+  overflow-y: auto;
+  margin-top: 15px;
+  flex-grow: 1;
+  color: black;
+  max-height: 500px;
+}
+
+.roles p {
+  margin: 8px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #2d2207;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.buttonwrapper {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 13px;
+}
+
+.button {
+  width: 350px;
+  height: 40px;
+  background-image: linear-gradient(to right, #f2b517, #ffd25d);
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding-bottom: 6px;
+  color: #fffbf1;
+}
+
+.icon {
+  padding-bottom: 5px;
+}
+.borderLine {
+  all: unset;
+  display: block;
+  border-top: 1px solid black;
+  margin: 1rem 0;
+}
+
+.cardLoaderWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 420px;
+}
+
+.loader {
+  width: 30px;
+  height: 30px;
+  border-top: 3px solid #f2b517;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.empty {
+  color: #888;
+  font-size: 14px;
+}
+
+.errorText {
+  color: red;
+  font-size: 14px;
+}
+
+.updating {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.itemRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 2px;
+  border-radius: 8px;
+}
+
+/* LEFT text should not grow weirdly */
+.itemText {
+  margin: 0;
+  font-size: 14px;
+  color: #d22b2b;
+  flex: 1;
+}
+
+/* RIGHT actions ALWAYS at end */
+.hoverActions {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+  opacity: 0;
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+/* show on hover */
+.itemRow:hover .hoverActions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.editBtn,
+.deleteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 6px;
+  border-radius: 7px;
+  border: 1px solid #d2cab3;
+  background-color: #fff;
+}
+
+/* Small screens (phones) */
+@media (max-width: 480px) {
+  .header {
+    padding: 8px;
+  }
+
+  .department {
+    padding: 12px;
+    margin: 8px 0px;
+  }
+
+  .roles p {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+  .wrapper {
+    margin: 5px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}

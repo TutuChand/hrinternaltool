@@ -9,7 +9,8 @@ import AttendanceMonitor from "./AttendanceMonitor";
 
 const Dashboard = () => {
   return (
-    <>
+  
+    <div className={styles.dashboardwrapper}>
       <StatCards />
       <div className={styles.dashboardgrid}>
         <LeaveRequests />
@@ -20,7 +21,8 @@ const Dashboard = () => {
         <Announcements />
       </div>
       <AttendanceMonitor />
-    </>
+      </div>
+  
   );
 };
 

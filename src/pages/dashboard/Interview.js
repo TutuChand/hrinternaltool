@@ -1,70 +1,102 @@
 import React from "react";
 import styles from "../../pages/dashboard/dashboard.module.css";
 import icon21 from "../../assets/jd.png";
-import icon22 from "../../assets/lm.png";
-import icon23 from "../../assets/as.png";
+import { useHiringList } from "../../hooks/Hiring/HiringListHook";
+import { Link } from "react-router-dom";
 
 const Interview = () => {
+  const { data, isLoading, isError } = useHiringList();
+  const list = data || [];
+
   return (
     <div className={styles.cardInterview}>
       <div className={styles.cardInterviewHeader}>
-        <h3>Today's Interview</h3>
-        <p>See All Hiring</p>
+        <h3>Recent Hiring Candidates</h3>
+        <Link to="/hiring" className={styles.viewReport}>
+          View Report
+        </Link>
       </div>
 
       <div className={styles.interviewList}>
-        <div className={styles.interviewItem}>
-          <div className={styles.interviewLeft}>
-            <img src={icon21} alt="Interviewee" />
-            <div>
-              <h4>John Doe</h4>
-              <span className={styles.interviewrole}>
-                Frontend Developer • Technical Round
-              </span>
-            </div>
+        {/* LOADING STATE */}
+        {isLoading && (
+          <div
+            style={{
+              width: "100%",
+              textAlign: "center",
+              padding: "40px 0",
+              fontWeight: 500,
+              color: "#666",
+            }}
+          >
+            Loading candidates...
           </div>
-          <div className={styles.interviewRight}>
-            <div className={styles.interviewactions}>
-              <button className={styles.interviewdetails1}>Scheduled</button>
-              <p>Today, 2:00 PM</p>
-            </div>
-          </div>
-        </div>
+        )}
 
-        <div className={styles.interviewItem}>
-          <div className={styles.interviewLeft}>
-            <img src={icon22} alt="Interviewee" />
-            <div>
-              <h4>Lisa Marie</h4>
-              <span className={styles.interviewrole}>
-                UX Designer • HR Round
-              </span>
-            </div>
+        {/* ERROR STATE */}
+        {!isLoading && isError && (
+          <div
+            style={{
+              width: "100%",
+              textAlign: "center",
+              padding: "40px 0",
+              fontWeight: 500,
+              color: "red",
+            }}
+          >
+            Failed to load candidates
           </div>
-          <div className={styles.interviewRight}>
-            <div className={styles.interviewactions}>
-              <button className={styles.interviewdetails2}>Pending</button>
-            </div>
-          </div>
-        </div>
+        )}
 
-        <div className={styles.interviewItem}>
-          <div className={styles.interviewLeft}>
-            <img src={icon23} alt="Interviewee" />
-            <div>
-              <h4>Alex Smith</h4>
-              <span className={styles.interviewrole}>
-                Product Manager • HR Round
-              </span>
-            </div>
+        {/* EMPTY STATE */}
+        {!isLoading && !isError && list.length === 0 && (
+          <div
+            style={{
+              width: "100%",
+              textAlign: "center",
+              padding: "40px 0",
+              fontWeight: 500,
+              color: "#666",
+            }}
+          >
+            No candidates found.
           </div>
-          <div className={styles.interviewRight}>
-            <div className={styles.interviewactions}>
-              <button className={styles.interviewdetails3}>Rejected</button>
-              <p>After HR Round</p>
+        )}
+
+        {/* DATA RENDER */}
+        {!isLoading &&
+          !isError &&
+          list.map((item) => (
+            <div key={item?._id} className={styles.interviewItem}>
+              <div className={styles.interviewLeft}>
+                <img src={item?.avatar || icon21} alt="Interviewee" />
+                <div>
+                  <h4>{item?.name || "Unknown"}</h4>
+                  <span className={styles.interviewrole}>
+                    {item?.jobRole || "Role"} • {item?.round || "Round"}
+                  </span>
+                </div>
+              </div>
+
+              <div className={styles.interviewRight}>
+                <div className={styles.interviewactions}>
+                  <button
+                    className={
+                      item?.status === "Scheduled"
+                        ? styles.interviewdetails1
+                        : item?.status === "Pending"
+                          ? styles.interviewdetails2
+                          : styles.interviewdetails3
+                    }
+                  >
+                    {item?.status || "Pending"}
+                  </button>
+
+                  {item?.scheduleTime && <p>{item.scheduleTime}</p>}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          ))}
       </div>
     </div>
   );

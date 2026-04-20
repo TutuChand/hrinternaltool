@@ -107,7 +107,14 @@ const Login = () => {
           </div>
 
           <button className={styles.btn} type="submit" disabled={isPending}>
-            {isPending ? "Logging in..." : "Login"}
+            {isPending ? (
+              <span className={styles.loadingWrapper}>
+                <span className={styles.loader}></span>
+                <span>Loading...</span>
+              </span>
+            ) : (
+              "Login"
+            )}
           </button>
         </form>
       </div>
