@@ -11,7 +11,7 @@
 
 .wrapper {
   background: white;
-  width: 420px;
+  width: 380px;
   max-height: 500px;
   padding: 30px;
   border: 2px solid #fff3d5;
@@ -50,10 +50,10 @@
 
 .continue {
   height: 20px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   color: #8e8670;
-  margin: 2px 0px 0px;
+  margin: 0px 14px 0px 4px;
 }
 
 .errorMessage {

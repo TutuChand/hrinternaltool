@@ -11,11 +11,11 @@
 
 .wrapper {
   background: white;
-  width: 460px;
-  max-height: 565px;
-  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
   border: 2px solid #fff3d5;
-  border-radius: 12px;
+  border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
@@ -49,10 +49,10 @@
 
 .continue {
   height: 23px;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 500;
   color: #8e8670;
-  margin: 5px 5px 0px;
+  margin: 0px 5px 0px;
 }
 
 .errorMessage {
@@ -232,4 +232,32 @@ input:checked + .sliderRound:before {
   align-items: center;
   font-weight: 600;
   margin-top: 12px;
+}
+
+/* Small screens (phones) */
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 10px;
+    margin: 14px;
+  }
+
+  .logo img {
+    width: 45px;
+  }
+
+  .continue {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .welcome {
+    font-size: 22px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .wrapper {
+    max-width: 420px;
+    padding: 30px;
+  }
 }
