@@ -3,7 +3,11 @@ import { loginUser } from "../../Api/auth";
 import { useNavigate } from "react-router-dom";
 import { useSetAtom } from "jotai";
 import { userAtom, isLoggedInAtom } from "../../atoms/authAtoms";
-import toast from "react-hot-toast";
+import {
+  showSuccessToast,
+  showWarningToast,
+  showErrorToast,
+} from "../../components/ToastHelpers";
 
 export const useLogin = (setError) => {
   const navigate = useNavigate();
@@ -17,6 +21,7 @@ export const useLogin = (setError) => {
       setError("");
       setIsLoggedIn(true);
       setUser(data?.user);
+
       if (data?.token) {
         document.cookie = `accessToken=${data.token}; max-age=900; path=/; Secure; SameSite=Strict`;
         setTimeout(() => {
@@ -24,19 +29,20 @@ export const useLogin = (setError) => {
             "accessToken=; Max-Age=0; path=/; Secure; SameSite=Strict";
           setIsLoggedIn(false);
           navigate("/login");
-          toast("Session expired. Please log in again.");
+          showWarningToast("Session expired. Please log in again.");
         }, 900 * 1000);
       }
 
-      toast.success("Logged in Successfully");
+      showSuccessToast("Login Successful");
       navigate("/dashboard");
     },
 
     onError: (err) => {
       console.log("Login Error:", err);
       const errorMessage =
-        err?.response?.data?.message || err?.message || "Login failed :x:";
+        err?.response?.data?.message || err?.message || "Login failed";
       setError(errorMessage);
+      showErrorToast(errorMessage);
     },
   });
 };

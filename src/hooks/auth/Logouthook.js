@@ -3,7 +3,10 @@ import { logoutUser } from "../../Api/auth";
 import { useNavigate } from "react-router-dom";
 import { useSetAtom } from "jotai";
 import { isLoggedInAtom } from "../../atoms/authAtoms";
-import toast from "react-hot-toast";
+import {
+  showSuccessToast,
+  showErrorToast,
+} from "../../components/ToastHelpers";
 
 export const useLogout = () => {
   const navigate = useNavigate();
@@ -18,13 +21,13 @@ export const useLogout = () => {
         "accessToken=; Max-Age=0; path=/; Secure; SameSite=Strict";
 
       localStorage.removeItem("authToken");
-      toast.success("Logged Out Successfully");
+      showSuccessToast("Logged Out Successfully");
       navigate("/login");
     },
 
     onError: (err) => {
       console.error("Logout failed:", err);
-      toast.error(err.message || "Logout failed. Please try again.");
+      showErrorToast(err.message || "Logout failed. Please try again.");
     },
   });
 };

@@ -1,0 +1,65 @@
+.customSuccessToast,
+.customWarningToast,
+.customErrorToast {
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ✅ Success */
+.customSuccessToast {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #22c55e;
+}
+.customSuccessToast::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 4px;
+  width: 100%;
+  background: #22c55e;
+  animation: slideBorder var(--toast-duration, 5000ms) linear forwards;
+}
+
+/* ⚠️ Warning */
+.customWarningToast {
+  background: #fffbeb;
+  color: #78350f;
+  border: 1px solid #f59e0b;
+}
+.customWarningToast::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 4px;
+  width: 100%;
+  background: #f59e0b;
+  animation: slideBorder var(--toast-duration, 5000ms) linear forwards;
+}
+
+/* ❌ Error */
+.customErrorToast {
+  background: #fef2f2;
+  color: #7f1d1d;
+  border: 1px solid #dc2626;
+}
+.customErrorToast::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 4px;
+  width: 100%;
+  background: #dc2626;
+  animation: slideBorder var(--toast-duration, 5000ms) linear forwards;
+}
+
+@keyframes slideBorder {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
