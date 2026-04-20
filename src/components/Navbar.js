@@ -76,7 +76,6 @@ const Navbar = ({ onMenuClick }) => {
         </div>
       </div>
 
-      {/* RIGHT SIDE (ONLY PROFILE) */}
       <div className={styles.headerRight}>
         <div className={styles.profileDropdown} ref={dropdownRef}>
           <button

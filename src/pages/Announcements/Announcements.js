@@ -3,27 +3,21 @@ import DatePicker from "react-datepicker";
 import styles from "../../pages/Birthdays/Birthday.module.css";
 import ReusableTable from "../../components/Table";
 import Pagination from "../../components/Pagination";
-import { ReactComponent as View } from "../../assets/view employee.svg";
 import { ReactComponent as Export } from "../../assets/export.svg";
 import { ReactComponent as Calender } from "../../assets/calender.svg";
-import { ReactComponent as Edit } from "../../assets/edit.svg";
-import { ReactComponent as Delete } from "../../assets/delete.svg";
 import { ReactComponent as Plus } from "../../assets/plus svg.svg";
 import usePagination from "../../hooks/Pagination/PaginationHook";
 import searchicon from "../../assets/search.svg.png";
 
 const Announcement = () => {
-  const [openMenuId, setOpenMenuId] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [tempDate, setTempDate] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterType, setFilterType] = useState("upcoming");
 
-  const employeesPerPage = 6;
+  const itemsPerPage = 6;
 
-  // ✅ NO API, NO DATA (PURE UI MODE)
-  const birthdayList = [];
+  const announcementList = [];
 
   const formatDate = (date) =>
     date
@@ -34,28 +28,12 @@ const Announcement = () => {
         })
       : "-";
 
-  const filteredData = birthdayList.filter((emp) => {
-    const fullName =
-      `${emp.firstName || ""} ${emp.lastName || ""}`.toLowerCase();
-    const designation = (emp.designation || "").toLowerCase();
+  const filteredData = announcementList.filter((item) => {
+    const title = (item.title || "").toLowerCase();
+    const type = (item.type || "").toLowerCase();
     const search = searchTerm.toLowerCase();
 
-    const matchesSearch =
-      fullName.includes(search) || designation.includes(search);
-
-    if (!matchesSearch) return false;
-
-    const dob = emp.dateOfBirth;
-    if (!dob) return true;
-
-    const today = new Date();
-    const birthDate = new Date(dob);
-
-    if (filterType === "month") {
-      return birthDate.getMonth() === today.getMonth();
-    }
-
-    return true;
+    return title.includes(search) || type.includes(search);
   });
 
   const {
@@ -68,18 +46,17 @@ const Announcement = () => {
     nextPage,
     prevPage,
     setCurrentPage,
-  } = usePagination(filteredData, employeesPerPage);
+} = usePagination(filteredData, itemsPerPage);
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchTerm, filterType, setCurrentPage]);
+  }, [searchTerm, setCurrentPage]);
 
   const columns = [
-    { label: "EMPLOYEE NAME" },
-    { label: "ROLE" },
-    { label: "DATE OF BIRTH" },
-    { label: "UPCOMING BIRTHDAY" },
-    { label: "AGE" },
+    { label: "TITLE" },
+    { label: "TYPE" },
+    { label: "DATE" },
+    { label: "STATUS" },
     { label: "ACTIONS" },
   ];
 
@@ -188,10 +165,23 @@ const Announcement = () => {
         data={currentData}
         isLoading={false}
         isError={false}
-        renderRow={() => null}
+        renderRow={(item) => (
+          <tr key={item.id}>
+            <td>{item.title || "-"}</td>
+            <td>{item.type || "-"}</td>
+            <td>{formatDate(item.date)}</td>
+            <td>{item.status || "-"}</td>
+            <td>-</td>
+          </tr>
+        )}
       />
+      {filteredData.length === 0 && (
+        <div style={{ textAlign: "center", marginTop: "20px" }}>
+          No announcements found
+        </div>
+      )}
 
-      {/* PAGINATION (KEPT) */}
+      {/* PAGINATION*/}
       {filteredData.length > 0 && (
         <Pagination
           currentPage={currentPage}
